@@ -27,6 +27,8 @@ The company wants to know whether the new checkout experience (B) performs diffe
 - Randomized control and treatment groups
 - User, experiment, conversion, revenue, and performance fields
 
+Dataset: This project uses a synthetically generated dataset containing 200,000 user-level observations. It does not contain real customer or personally identifiable information.
+
 Detailed column descriptions are available in the data dictionary. The project does not list every field here so the README stays easy to scan.
 
 ## Main Metrics
