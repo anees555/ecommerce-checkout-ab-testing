@@ -1,0 +1,17 @@
+column_name,data_type,description,allowed_values,business_role
+user_id,integer,Unique identifier for the experimental user,"100001-300000, unique",Primary key
+experiment_date,date (YYYY-MM-DD),Date the user entered the experiment,2026-01-05 to 2026-02-15,Time dimension
+experiment_day,integer,Sequential day number of the experiment (1 = 2026-01-05),1-42,Time dimension
+variant,string,Randomly assigned experiment arm,"A (control), B (treatment)",Experiment assignment
+device,string,Device category used during the session,"Mobile, Desktop, Tablet",Segment / covariate
+country,string,User country,"US, UK, CA, AU, DE, IN, Other",Segment / covariate
+traffic_source,string,Acquisition channel for the session,"Organic, Paid Search, Social, Email, Referral",Segment / covariate
+new_user,boolean,Whether the user is new (TRUE) or returning (FALSE),"TRUE, FALSE",Segment / covariate
+sessions,integer,Number of sessions during the experiment window,">= 1, right-skewed",Engagement / covariate
+checkout_started,boolean,Whether the user initiated checkout,"TRUE, FALSE",Funnel step
+purchase,boolean,PRIMARY OUTCOME: whether the user completed a purchase,"TRUE, FALSE",Primary metric
+revenue,float,Order value in USD; 0 if purchase = FALSE,>= 0,Secondary metric
+payment_failed,boolean,Whether a payment attempt failed (only possible if checkout_started = TRUE),"TRUE, FALSE",Guardrail metric
+refund,boolean,Whether the order was refunded (only possible if purchase = TRUE),"TRUE, FALSE",Guardrail metric
+page_load_time_ms,float,Checkout page load time in milliseconds,">= 500, right-skewed",Guardrail metric / performance
+exposure_logged,boolean,Whether the experiment exposure event was successfully logged,"TRUE, FALSE",Data quality flag
